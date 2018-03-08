@@ -92,23 +92,35 @@ var output3 = document.getElementById("c3");
 output3.innerHTML = slider3.value;
 
 slider1.oninput = function() {
-  output1.innerHTML = this.value;
-}
+  var rgb = getColors();
+  output1.innerHTML = rgb[0];
+  postColors(rgb);
+};
+
 slider2.oninput = function() {
-  output2.innerHTML = this.value;
-}
+  var rgb = getColors();
+  output2.innerHTML = rgb[1];
+  postColors(rgb);
+};
+
 slider3.oninput = function() {
-  output3.innerHTML = this.value;
-}
-function values(){
-        var rv = R.value;
-        var gv = G.value;
-        var bv = B.value;
-        var xmlhttp=new XMLHttpRequest();
-        xmlhttp.open("POST",rv + gv + bv,true);
-        xmlhttp.send();
-      }
-      setInterval(values, 200);
+  var rgb = getColors();
+  output3.innerHTML = rgb[2];
+  postColors(rgb);
+};
+
+getColors = function() {
+  var rgb = new Array(slider1.value, slider2.value, slider3.value);
+  return rgb;
+};
+
+postColors = function(rgb) {
+  var xmlhttp = new XMLHttpRequest();
+  var npxJSON = '{"R":' + rgb[0] + ', "G":' + rgb[1] + ', "B":' + rgb[2] + '}';
+  xmlhttp.open('POST', 'http://' + window.location.hostname + '/npx', true);
+  xmlhttp.setRequestHeader('Content-type', 'application/json');
+  xmlhttp.send(npxJSON);
+};
 </script>
 
 </body>
