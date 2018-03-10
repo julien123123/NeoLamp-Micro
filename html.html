@@ -117,7 +117,7 @@ getColors = function() {
 postColors = function(rgb) {
   var xmlhttp = new XMLHttpRequest();
   var npxJSON = '{"R":' + rgb[0] + ', "G":' + rgb[1] + ', "B":' + rgb[2] + '}';
-  xmlhttp.open('POST', 'http://' + window.location.hostname + '/npx', true);
+  xmlhttp.open('POST', 'http://' + window.location.hostname, true);
   xmlhttp.setRequestHeader('Content-type', 'application/json');
   xmlhttp.send(npxJSON);
 };
