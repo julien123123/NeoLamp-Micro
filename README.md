@@ -10,4 +10,4 @@ By Default the Data pin will be set to GPIO 5 (I am using an ESP8266) and I'm us
     np = npx(Pin(5), 32)
 If you have problems with your neopixel matrix or strip I avise you to read Adafruit's Uberguide here : https://learn.adafruit.com/adafruit-neopixel-uberguide/the-magic-of-neopixels
 
-#### Then you simply have to load the file on your boad. I advise you to try it in the REPL before anything
+#### Then you simply have to load the .py file on your boad. I advise you to try it in the REPL before anything
